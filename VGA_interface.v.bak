@@ -1,0 +1,13 @@
+module VGA_interface (
+    input  wire clk,
+    output H_sync_pin,
+    V_sync_pin
+);
+
+wire H_pulse , line_finish ;
+
+H_sync U1 (clk,H_sync_pin,line_finish);
+
+V_sync U2 (line_finish,V_sync_pin);
+
+endmodule 

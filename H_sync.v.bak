@@ -1,0 +1,18 @@
+module H_sync (
+    input  clk,         // clk = 65 MHz
+    output pulse, finish  
+);
+localparam   whole_line = 1344, visible_area = 1024 , front_porch = 24, sync_pulse = 136  ; 
+reg[11:0]  pixel ; 
+
+always @( posedge clk) begin
+    if (pixel < whole_line)
+        pixel <= pixel + 1 ;
+    else
+        pixel  <= 0 ;       
+end
+
+assign pulse = (pixel < (visible_area + front_porch ) || pixel > (visible_area + front_porch + sync_pulse) );  //--------------------------------------________------
+assign finish = (pixel == whole_line);
+
+endmodule //H_sync
