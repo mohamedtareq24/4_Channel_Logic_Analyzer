@@ -1,1 +1,1 @@
-VGA controller implimnted on ALTERA FPGA using Quartus prime lite written in verilog 
+VGA controller implemented on ALTERA FPGA using Quartus prime lite written in verilog 
