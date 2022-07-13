@@ -6,12 +6,12 @@ module V_sync (
 
 
 always @( posedge clk) begin
-    if (line < 628)
+    if (line < whole_frame)
         line <= line + 1 ;
     else
         line  <= 0 ;       
 end
 
-assign pulse = (line > (601) && line <= 605) ; 
+assign pulse = (line > (601) && line < 605) ; 
 
 endmodule //V_sync

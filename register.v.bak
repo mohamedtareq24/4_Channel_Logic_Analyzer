@@ -1,0 +1,31 @@
+module register (
+    input read , address ,clk ,reset
+    input[8:0] Data_in,
+    output [8:0]  Data_out   
+    );
+
+    reg [8:0] memo [1:0] ;
+    reg state ; // 
+    localparam A = 0 , B = 1 ;
+    always @(posedge clk )
+    begin
+        if (reset) 
+            state = A ; 
+        else 
+            case  (state)
+                A :
+                begin
+                    state <= (read) ?  A : B ; 
+                    Data_out <= memo [0] ;
+                    memo[1] <= Data_in ;
+                end          
+                B :
+                begin
+                    state <= (read)  ? A : B ; 
+                    Data_out <= memo [1] ;
+                    memo[0] <= Data_in ;
+                end  
+            endcase
+    end
+
+endmodule //register

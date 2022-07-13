@@ -1,13 +1,33 @@
 module VGA_interface (
-    input  wire clk,
-    output H_sync_pin,
-    V_sync_pin
-);
+    input   clk40,
+    output  [2:0] RGBpins,
+    output H_sync_pin,V_sync_pin   
+ );
+ 
+    wire /*clk40*/,ready,line_finish,dispaly ;
+    wire  RGBh, RGBv; //flags 
+	 wire [24:0] RGBh25,RGBv25;
+	
+    wire[10:0] line_number ,pixel_number ;
+    //PLL_40 PLL(clk50,clk40,ready);
 
-wire H_pulse , line_finish ;
+    H_sync U1 (clk40,H_sync_pin,line_finish,dispaly,pixel_number);
 
-H_sync U1 (clk,H_sync_pin,line_finish);
+    V_sync U2 (line_finish,V_sync_pin,line_number);
 
-V_sync U2 (line_finish,V_sync_pin);
-
+//    genvar  i ; 
+//	 generate
+//        for ( i = 0; i < 800 ; i = i + 32 ) begin : genblock
+//            equal U0(pixel_number, i ,RGBv25[(i)/32]);
+//		  end
+//    endgenerate 
+//	 	generate
+//        for ( i = 0; i <= 512 ; i = i + 32 ) begin : genblock2
+//            equal U0(line_number, i ,RGBh25[(i)/32]);
+//		  end
+//     endgenerate
+//	  assign RGBv = |(RGBv25);
+//     assign RGBh = |(RGBh25);
+//     assign RGBpins  =  (RGBv|RGBh) ?  3'b001 : 3'b000 ;
+    
 endmodule 

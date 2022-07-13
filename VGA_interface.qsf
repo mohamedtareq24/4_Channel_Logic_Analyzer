@@ -58,13 +58,6 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
-set_global_assignment -name VERILOG_FILE VGA_interface.v
-set_global_assignment -name VERILOG_FILE V_sync.v
-set_global_assignment -name VERILOG_FILE H_sync.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE PLL_65.qip
 set_location_assignment PIN_23 -to clk50
 set_location_assignment PIN_101 -to H_sync_pin
 set_location_assignment PIN_103 -to V_sync_pin
@@ -82,10 +75,16 @@ set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
 set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
 set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
 set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
-set_location_assignment PIN_105 -to Green
-set_location_assignment PIN_104 -to Blue
-set_location_assignment PIN_106 -to Red
-set_location_assignment PIN_88 -to RGB[0]
-set_location_assignment PIN_89 -to RGB[1]
-set_location_assignment PIN_90 -to RGB[2]
+set_global_assignment -name VERILOG_FILE register.v
+set_global_assignment -name VERILOG_FILE equal.v
+set_global_assignment -name VERILOG_FILE VGA_interface.v
+set_global_assignment -name VERILOG_FILE V_sync.v
+set_global_assignment -name VERILOG_FILE H_sync.v
+set_global_assignment -name QIP_FILE PLL_40.qip
+set_location_assignment PIN_106 -to RGBpins[0]
+set_location_assignment PIN_105 -to RGBpins[1]
+set_location_assignment PIN_104 -to RGBpins[2]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

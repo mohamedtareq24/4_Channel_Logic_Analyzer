@@ -1,0 +1,21 @@
+`timescale 1ps/1ps
+module registerDUT ();
+    integer  pixel ;
+    reg  clk,read ;
+    wire [8:0] Data_out;
+    reg [8:0]  Data_in;
+    register REGISTER (read ,clk,Data_in,Data_out);
+    always
+    #50 clk   = ~ clk ;
+    #100 read = ~read ;
+    initial begin
+         clk =  1;
+         read = 0;
+        for ( pixel = 0 ; pixel <= 800; pixel = pixel + 1 )
+         begin
+            #100 Data_in <= pixel ;
+         end
+         $stop
+    end
+
+endmodule //registerDUT
