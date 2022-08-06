@@ -1,4 +1,2 @@
-VGA controller implemented on ALTERA FPGA using Quartus prime lite written in verilog 
-
-XGA mode is used 1024 x 768 @ 60Hz but the design is parametrized , just add the timing parmters from http://tinyvga.com/vga-timing to the files H_sync and V_sync
-
+Design and implantation of an FPGA based 4 channel Logic analyzer on the ALTERA Cyclone IV FPGA, integrating ALTERA’s IPs and M9K BRAMs and outputting the analyzed data to a VGA
+monitor via a designed VGA interface on the XGA mode
