@@ -42,7 +42,8 @@ Pin assigmnets:
 
 the design needs 6 switches for 1 for channel mode (mode), 2 for zoom,  2 for offset and  1 for sample clock select  I only had 5 
 also you will need to use a jumper wire for reset and start pins.
-- reset pin is active high
+- sample_clock_sel switch controls the LEDs you have 4 sampling frequnices indicated by the  4 LEDs
+- reset pin is active high make sure it's grounded when not in use 
 - datain [3:0] are the data input pins of every channel data[0] is the triggring channel that triggers the whole system
 - start pin is used to start sampling if the pin is high level if not datain[0] data won't trigger the system 
 ![image](https://user-images.githubusercontent.com/90535558/183300027-8856b9b8-05ef-430f-8fa2-bc7e882ccaa6.png)
