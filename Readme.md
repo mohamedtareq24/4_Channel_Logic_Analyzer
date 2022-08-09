@@ -1,4 +1,4 @@
-Design and implantation of an FPGA based 4 channel Logic analyzer on the ALTERA Cyclone IV FPGA, integrating ALTERA’s IPs and M9K BRAMs and outputting the analyzed data to a VGA
+Design and implantation of an FPGA based 4 channel Logic analyzer on the ALTERA Cyclone IV EP4CE FPGA, integrating ALTERA’s IPs and M9K BRAMs and outputting the analyzed data to a VGA
 ![image](https://user-images.githubusercontent.com/90535558/183300181-34f18d92-01a3-44e1-b301-abb639dbbd16.png)
 
 monitor via a designed VGA interface on the XGA mode
