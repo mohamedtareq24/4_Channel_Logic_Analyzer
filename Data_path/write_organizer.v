@@ -50,10 +50,13 @@ always @(*) begin
             datain[3:2] = data_source[1:0];
         end
          
-        2: begin                               // multi channel
-            WE = 4'b1111;
-            datain = data_source ;
-        end
+	   2: begin                               // multi channel
+				if (write_address > 8192) 
+					WE = 4'b0;            
+				else 
+					WE = 4'b1111; 
+				datain[3:0] = data_source[3:0];            
+			end
         default : begin
             WE = 4'b0;
             datain = data_source ;
